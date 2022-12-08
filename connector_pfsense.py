@@ -1,13 +1,13 @@
 import requests
 from lxml import html
-import argparse
+from lxml import etree
 
 #local
 from connector import Connector
 from credential import Credential    
 
 
-class Connector_PfSense (Connector):
+class Connector_PfSense(Connector):
 
     def __init__(self, credential):
         super().__init__(credential)
@@ -62,6 +62,12 @@ class Connector_PfSense (Connector):
 
     def __str__(self):
         return f"HOST : {self.credential.host} ; SSL : {self.credential.ssl} ; Username : {self.credential.username} ; Password : {self.credential.password}"
+
+cred = Credential("pfsense", "192.168.140.250", False, "admin", "pfsense")
+pfsense = Connector_PfSense(cred)
+print(pfsense)
+pfsense.connect()
+print(pfsense.retrieve())
 
 """
 EXAMPLE

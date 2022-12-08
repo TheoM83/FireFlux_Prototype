@@ -1,19 +1,15 @@
-class Connector :  
+class Parser :  
 
-    def __init__(self, credential):
-        self.credential = credential
-        self.login_success = False 
+    def __init__(self):
+        self.parse_success = False 
+        self.rules = []
     
     #Connect to the interface
-    def login(self):
+    def parse(self, xml):
         pass
     
-    #Retrive the firewall information
-    def retrieve(self):
-        pass
-
-    def get_login_success(self):
-        return login_success
+    def get_rules(self):
+        return self.rules
 
     #Display the informations
     def __str__(self):
